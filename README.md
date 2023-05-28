@@ -26,5 +26,14 @@ require('flutter').setup({
         enabled = true -- set to false to disable
     },
     hot_reload = true, -- Hot reload automatically on save
+    lsp = {
+        capabilities = my_custom_capabilities -- e.g. lsp_status capabilities
+        -- OR you can specify a function to deactivate or change or control how
+        -- the config is created.
+        capabilities = function(capabilities)
+            capabilities.specificThingIDontWant = false
+            return capabilities
+        end,
+    }
 })
 ```

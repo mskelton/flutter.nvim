@@ -4,15 +4,23 @@ local closing_labels = require("flutter.closing_labels")
 local M = {}
 
 M.make_capabilities = function()
-	local capabilities = config.opts.lsp.capabilities
-		or vim.lsp.protocol.make_client_capabilities()
+	if type(config.opts.lsp.capabilities) == "table" then
+		return config.opts.lsp.capabilities
+	end
 
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	-- capabilities.workspace.configuration = true
 
 	-- This setting allows document changes to be made via the lsp e.g. renaming
 	-- a file when the containing class is renamed also.
 	-- @see: https://microsoft.github.io/language-server-protocol/specifications/specification-current/#workspaceEdit
 	capabilities.workspace.workspaceEdit.documentChanges = true
+
+	if config.opts.lsp.capabilities then
+		return config.opts.lsp.capabilities(capabilities)
+	else
+		return capabilities
+	end
 end
 
 --- Setup the LSP for Dart
