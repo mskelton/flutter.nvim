@@ -8,11 +8,22 @@ Install with your favorite package manager (e.g. [lazy.nvim](https://github.com/
 
 ```lua
 {
-  "mskelton/flutter.nvim",
-  config = true,
+    "mskelton/flutter.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = true,
 }
 ```
 
-## Usage
+## Options
 
-TODO
+The following shows the available options with their configured defaults
+
+```lua
+require('flutter').setup({
+    closing_labels = {
+        highlight = "Comment", -- highlight for the closing label
+        prefix = "// ", -- character(s) to use for close label e.g. // Widget
+        enabled = true -- set to false to disable
+    },
+})
+```
