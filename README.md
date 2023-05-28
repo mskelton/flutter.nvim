@@ -25,5 +25,6 @@ require('flutter').setup({
         prefix = "// ", -- character(s) to use for close label e.g. // Widget
         enabled = true -- set to false to disable
     },
+    hot_reload = true, -- Hot reload automatically on save
 })
 ```

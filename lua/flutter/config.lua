@@ -39,6 +39,7 @@ local function get_defaults()
 			prefix = "// ",
 			enabled = true,
 		},
+		hot_reload = true,
 	}
 end
 
