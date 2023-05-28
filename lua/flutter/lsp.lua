@@ -4,7 +4,9 @@ local closing_labels = require("flutter.closing_labels")
 local M = {}
 
 M.make_capabilities = function()
-	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	local capabilities = config.opts.lsp.capabilities
+		or vim.lsp.protocol.make_client_capabilities()
+
 	-- capabilities.workspace.configuration = true
 
 	-- This setting allows document changes to be made via the lsp e.g. renaming

@@ -40,6 +40,7 @@ local function get_defaults()
 			enabled = true,
 		},
 		hot_reload = true,
+		lsp = {},
 	}
 end
 
