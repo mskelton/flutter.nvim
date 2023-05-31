@@ -32,6 +32,12 @@ M.setup = function()
 		},
 		handlers = {
 			["dart/textDocument/publishClosingLabels"] = closing_labels.closing_labels,
+			["workspace/applyEdit"] = function(_, result, ctx)
+				-- The label is not necessary and just creates noise
+				result.label = nil
+
+				return vim.lsp.handlers["workspace/applyEdit"](_, result, ctx)
+			end,
 		},
 	})
 end
