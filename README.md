@@ -37,3 +37,9 @@ require('flutter').setup({
     }
 })
 ```
+
+## Screenshots
+
+### Closing Tags
+
+[Closing tags](https://github.com/mskelton/flutter.nvim/assets/25914066/3d26d621-3392-4b8c-969a-259168c10d68)
